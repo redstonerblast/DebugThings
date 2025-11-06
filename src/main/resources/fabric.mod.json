@@ -1,0 +1,50 @@
+{
+	"schemaVersion": 1,
+	"id": "debug-things",
+	"version": "${version}",
+	"name": "Debug Things",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"TallyIsManyThings"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/debug-things/icon.png",
+	"environment": "*",
+	"accessWidener" : "debugthings.accesswidener",
+	"entrypoints": {
+		"main": [
+			"net.tally.DebugThings"
+		],
+		"client": [
+			"net.tally.DebugThingsClient"
+		],
+		"fabric-datagen": [
+			"net.tally.TemplateModDataGenerator"
+		],
+		"cardinal-components": [
+			"net.tally.components.DebugThingsComponents"
+		]
+	},
+	"mixins": [
+		"debug-things.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.17.2",
+		"minecraft": "~1.20.4",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	},
+	"custom": {
+		"cardinal-components": [
+			"debugthings:infliction_render",
+			"debugthings:immunities"
+		]
+	}
+}

@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "#debugthings:bleed",
+    "#debugthings:burn",
+    "#debugthings:poison",
+    "#debugthings:frostburn",
+    "#debugthings:shock",
+    "#debugthings:unholy",
+    "#debugthings:holy"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "required": true,
+  "package": "net.tally.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "BlockEntityMixin",
+    "BlockItemMixin",
+    "BlockMixin",
+    "LeafEntryAccessor",
+    "LootPool$BuilderMixin",
+    "LootPoolMixin",
+    "MilkBucketMixin",
+    "ServerWorldMixin",
+    "WorldChunkMixin",
+    "entities.ActiveTargetGoalMixin",
+    "entities.EntityAttributeInstanceInvoker",
+    "entities.EntityAttributeInstanceMixin",
+    "entities.EntityMixinData",
+    "entities.LivingEntityMixin",
+    "entities.PersistentProjectileMixin",
+    "entities.PlayerEntityMixin",
+    "entities.PlayerSoundMixin",
+    "entities.ServerPlayerHandlerMixin",
+    "entities.TrackTargetGoalMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  },
+  "client": [
+    "BiomeColorsMixin",
+    "client.ClientPlayerMixin",
+    "client.KeyboardInputMixin",
+    "client.MixinEntityRenderer",
+    "client.MixinLivingEntityRenderer",
+    "client.MixinPlayerEntityRenderer",
+    "client.ParticleManagerMixin"
+  ]
+}

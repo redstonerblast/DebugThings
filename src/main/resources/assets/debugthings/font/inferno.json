@@ -1,0 +1,13 @@
+{
+  "providers": [
+    {
+      "type": "bitmap",
+      "file": "debugthings:inflictions/inferno.png",
+      "ascent": 11,
+      "height": 11,
+      "chars": [
+        "\uE000"
+      ]
+    }
+  ]
+}

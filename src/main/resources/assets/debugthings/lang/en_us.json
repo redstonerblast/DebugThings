@@ -1,0 +1,59 @@
+{
+  "effect.debugthings.rot": "Rot",
+  "effect.debugthings.wounded": "Wounded",
+  "effect.debugthings.rubber": "Rubber",
+  "effect.debugthings.temporal_stretch": "Temporal Stretching",
+  "effect.debugthings.temporal_compress": "Temporal Compression",
+  "effect.debugthings.temporal_freeze": "Temporal Freeze",
+
+  "attribute.debugthings.player.tool_level": "Tool Tier",
+  "attribute.debugthings.player.dodge_chance": "Dodge Chance",
+  "attribute.debugthings.player.crit_chance": "Critical Chance",
+  "attribute.debugthings.player.crit_mult": "Crit Multiplier",
+  "attribute.debugthings.generic.neg_potion_dur": "Negative Potion Duration",
+  "attribute.debugthings.generic.pos_potion_dur": "Positive Potion Duration",
+  "attribute.debugthings.generic.invul_self": "Self Invulnerability Ticks",
+  "attribute.debugthings.generic.invul_attack": "Enemy Invulnerability Ticks",
+
+  "death.attack.i_bleed_natural": "%s bled to death",
+  "death.attack.i_bleed_natural.player": "%s bled out whilst being chased by %s",
+  "death.attack.i_bleed": "%s had their blood spilled by %s",
+  "death.attack.i_bleed.item": "%s was stabbed by %s using %s and bled out",
+
+
+  "death.attack.i_poison_natural": "%s got poisoned",
+  "death.attack.i_poison_natural.player": "%s succumbed to poison while running from %s",
+  "death.attack.i_poison": "%s was lethally injected by %s",
+  "death.attack.i_poison.item": "%s was prescribed death by %s using %s",
+
+  "death.attack.i_burn_natural": "%s got turned to a crisp",
+  "death.attack.i_burn_natural.player": "%s ran but %s was hot on their tail",
+  "death.attack.i_burn": "%s was roasted by %s",
+  "death.attack.i_burn.item": "%s was cooked by %s using %s as a cooking implement",
+
+  "death.attack.i_frostburn_natural": "%s became a pain popsicle",
+  "death.attack.i_frostburn_natural.player": "%s tried to run from %s but they got cold feet",
+  "death.attack.i_frostburn": "%s got flash froze by %s",
+  "death.attack.i_frostburn.item": "%s had their fingers froze off by %s using %s",
+
+  "death.attack.i_shock_natural": "%s was too good of a conductor",
+  "death.attack.i_shock_natural.player": "%s became a workplace accident while running from %s",
+  "death.attack.i_shock": "%s was shocked by %s",
+  "death.attack.i_shock.item": "%s got the electric chair by %s using %s",
+
+  "death.attack.i_holy_natural": "%s's sins caught up to them",
+  "death.attack.i_holy_natural.player": "%s got raptured after an encounter with %s",
+  "death.attack.i_holy": "%1$s had a holy intervention from %2$s",
+  "death.attack.i_holy.item": "%2$s brought holy wrath upon %1$s using %3$s",
+
+  "death.attack.i_unholy_natural": "%s got dragged into the underworld",
+  "death.attack.i_unholy_natural.player": "%s fell into hell after running from %s",
+  "death.attack.i_unholy": "%1$s was ripped apart by %2$s's magic",
+  "death.attack.i_unholy.item": "%2$s sacrificed %1$s using %3$s",
+
+  "item.debugthings.dummy_item": "DUMMY ITEM",
+  "item.debugthings.dummy_food": "DUMMY FOOD",
+
+  "commands.infliction.get": "%s has the infliction data %s",
+  "commands.infliction.give.success.single": "Gave %s stacks of %s to %s for %s seconds"
+}

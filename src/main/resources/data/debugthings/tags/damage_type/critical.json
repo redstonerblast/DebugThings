@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "#debugthings:melee",
+    "#minecraft:is_projectile"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "debugthings:wounded",
+    "debugthings:rubber",
+    "debugthings:temporal_compress",
+    "debugthings:temporal_stretch",
+    "debugthings:temporal_freeze"
+  ]
+}
