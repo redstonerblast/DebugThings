@@ -1,17 +1,13 @@
 package net.tally.events;
 
-import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerChunkEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
-import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
-import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.server.world.ChunkLevelType;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.world.chunk.WorldChunk;
 import net.tally.helpers.TempBlockAttachment;
 import net.tally.inflictions.InflictionHandler;
-import net.tally.items.DebugItems;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -30,8 +26,10 @@ public class WorldEvents {
     public static void startWorldTick(ServerWorld s) {
         List<WorldChunk> processChunks = new ArrayList<>(loadedChunks);
         for (WorldChunk chunk : processChunks) {
-            if (chunk != null && chunk.getLevelType().isAfter(ChunkLevelType.BLOCK_TICKING) && s.isChunkLoaded(chunk.getPos().toLong())) {
-                TempBlockAttachment.updateChunk(chunk);
+            if (s == chunk.getWorld()) {
+                if (chunk != null && chunk.getLevelType().isAfter(ChunkLevelType.BLOCK_TICKING) && s.isChunkLoaded(chunk.getPos().toLong())) {
+                    TempBlockAttachment.updateChunk(chunk);
+                }
             }
         }
 
@@ -47,11 +45,11 @@ public class WorldEvents {
     }
 
     public static void chunkLoad(ServerWorld world, WorldChunk chunk) {
-        loadedChunks.removeAll(Collections.singleton(chunk));;
+        loadedChunks.removeAll(Collections.singleton(chunk));
         loadedChunks.add(chunk);
     }
 
     public static void chunkUnload(ServerWorld world, WorldChunk chunk) {
-        loadedChunks.removeAll(Collections.singleton(chunk));;
+        loadedChunks.removeAll(Collections.singleton(chunk));
     }
 }

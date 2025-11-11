@@ -4,6 +4,7 @@ import dev.onyxstudios.cca.api.v3.component.ComponentKey;
 import dev.onyxstudios.cca.api.v3.component.ComponentRegistryV3;
 import dev.onyxstudios.cca.api.v3.entity.EntityComponentFactoryRegistry;
 import dev.onyxstudios.cca.api.v3.entity.EntityComponentInitializer;
+import dev.onyxstudios.cca.api.v3.entity.RespawnCopyStrategy;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.Identifier;
@@ -17,7 +18,7 @@ public class DebugThingsComponents implements EntityComponentInitializer {
     @Override
     public void registerEntityComponentFactories(EntityComponentFactoryRegistry registry) {
         registry.registerFor(LivingEntity.class, INFLICT_RENDER, SyncedRenderInflicts::new);
-        registry.registerFor(LivingEntity.class, IMMUNITIES, SyncedImmunities::new);
+        registry.beginRegistration(LivingEntity.class, IMMUNITIES).respawnStrategy(RespawnCopyStrategy.ALWAYS_COPY).end(SyncedImmunities::new);
     }
 
     public static void addImmunity(LivingEntity provider, String string) {

@@ -13,6 +13,8 @@ import java.util.Map;
 public class Burn extends Infliction {
     private static final Map<String, String> COMBINES = Map.ofEntries(
             Map.entry("debugthings:wet", "debugthings:empty"),
+            Map.entry("debugthings:rooted", "debugthings:empty"),
+            Map.entry("debugthings:orange", "debugthings:inferno"),
             Map.entry("debugthings:frost", "debugthings:frostburn")
     );
 

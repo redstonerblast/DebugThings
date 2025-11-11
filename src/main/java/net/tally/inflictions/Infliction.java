@@ -21,7 +21,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 public class Infliction {
-    private final Map<EntityAttribute, AttributeModifierCreator> attributeModifiers = Maps.<EntityAttribute, AttributeModifierCreator>newHashMap();
+    private final Map<EntityAttribute, AttributeModifierCreator> attributeModifiers = Maps.newHashMap();
     private final InflictionCategory category;
 
     private static final Map<String, String> COMBINES = Map.ofEntries();
@@ -92,6 +92,8 @@ public class Infliction {
             map.put("debugthings:curse", "debugthings:empty");
         }
 
+        boolean update = false;
+
         while (true) {
             Optional<String> key = oldData.getKeys().stream().filter(map::containsKey).findFirst();
             if (key.isEmpty()) {
@@ -107,6 +109,8 @@ public class Infliction {
                 continue;
             }
 
+            update = true;
+
             int oldDuration = ((NbtCompound) inflList.get(0)).getInt("duration");
             int compareStacks = ((NbtCompound) inflList.get(0)).getInt("stacks");
             int takeStacks = Math.min(compareStacks, instance.getStacks());
@@ -119,6 +123,9 @@ public class Infliction {
             if (combineOverrideOther(output, instance.getType(), inputb)) {
                 if (takeStacks == compareStacks) {
                     inflList.remove(0);
+                    if (inflList.isEmpty()) {
+                        inputb.onRemoved(entity.getAttributes());
+                    }
                 } else {
                     ((NbtCompound) inflList.get(0)).putInt("stacks", compareStacks - takeStacks);
                 }
@@ -127,8 +134,13 @@ public class Infliction {
                 combinedAdd(oldDuration, instance, output, takeStacks, entity);
             }
             if (combineOverrideSelf(output, instance.getType(), inputb)) {
-                instance.setStacks(instance.getStacks() - takeStacks);
+                int newStack = instance.getStacks() - takeStacks;
+                instance.setStacks(newStack);
+                instance.getType().onStackChange(entity.getAttributes(), newStack);
             }
+        }
+        if (update) {
+            InflictionHandler.forceUpdateInflicts(entity, (ServerWorld) entity.getWorld());
         }
     }
 
@@ -221,7 +233,7 @@ public class Infliction {
 
         @Override
         public EntityAttributeModifier createAttributeModifier(int amplifier) {
-            return new EntityAttributeModifier(this.uuid, Infliction.this.getTranslationKey() + " " + amplifier, this.baseValue * (amplifier + 1), this.operation);
+            return new EntityAttributeModifier(this.uuid, Infliction.this.getTranslationKey() + " " + amplifier, this.baseValue * amplifier, this.operation);
         }
     }
 }

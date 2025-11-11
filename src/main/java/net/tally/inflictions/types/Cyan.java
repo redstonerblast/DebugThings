@@ -10,7 +10,7 @@ public class Cyan extends Infliction {
             Map.entry("debugthings:shade", "debugthings:empty")
     );
 
-    public Cyan() {
+    public  Cyan() {
         super(InflictionCategory.HARMFUL);
     }
 
